@@ -1,0 +1,15 @@
+.wrap{
+  display: grid;
+}
+
+.header{
+  background-color: aqua;
+}
+
+.nav{
+  background-color: blue;
+}
+
+.content{
+  background-color: chartreuse;
+}

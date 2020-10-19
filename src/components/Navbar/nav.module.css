@@ -1,0 +1,16 @@
+.nav{
+  padding-left: 1vw;
+  font-size: 20px;
+  width: 10%;
+  height: 450px;
+  background-color: blue;
+  padding-top: 1vw;
+  }
+  
+  nav a{
+    color: aliceblue;
+  }
+
+  .activeItem{
+    color: gold;
+  }

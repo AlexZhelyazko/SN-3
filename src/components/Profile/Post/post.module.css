@@ -1,0 +1,12 @@
+.inputStyle {
+    border: none;
+    border-radius: 7px;
+    width: 12vw;
+    height: 7vh;
+}
+
+.buttonStyle {
+    border: none;
+    width: 4vw;
+    height: 2vh;
+}
