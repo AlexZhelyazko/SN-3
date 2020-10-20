@@ -1,0 +1,23 @@
+.inputSearch {
+    background-color: #45546a;
+    color: white;
+    border: none;
+    width: 175px;
+    height: 25px;
+    text-align: center;
+}
+
+.buttonSearch {
+    height: 25px;
+    width: 28px;
+    position: relative;
+    top: 9px;
+    background-color: #45546a;
+    border: none;
+    border-left: solid white 1px;
+}
+
+.buttonSearch:hover{
+    background-color: white;
+    cursor: pointer;
+}
