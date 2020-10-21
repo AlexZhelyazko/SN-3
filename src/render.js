@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import {addPost} from './components/Redux/state'
 
-export let renderElem = (props) => {
+export let renderElem = (state) => {
     ReactDOM.render(
-      <App state = {props.state} addPost = {addPost}/>,
+      <App state = {state} addPost = {addPost}/>,
       document.getElementById('root')
     );
   };
