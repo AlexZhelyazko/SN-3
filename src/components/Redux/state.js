@@ -1,3 +1,5 @@
+import {renderElem} from '../../render'
+
 const state = {
     txt: [
         { text: 'Hello', id: '1' },
@@ -20,6 +22,15 @@ const state = {
             { message: 'Programm', id: 4 },
         ],
     },
+}
+
+export let addPost = (postMessage) => {
+    let newPost = {
+        text: postMessage,
+        id: '1',
+    };
+    state.txt.push(newPost);
+    renderElem(state);
 }
 
 export default state;

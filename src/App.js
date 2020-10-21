@@ -16,11 +16,14 @@ const App = (props) => {
         <Header />
         <div className='contentWrap'>
           <Navbar />
-          <Route path='/profile' render = {() => <Profile txt = {props.state.txt} />}></Route>
-          <Route exact path='/messages' render = {() => <Dialogs dialogs = {props.state.dialogs}/>}></Route>
-          <Route path='/news' component = {News}></Route>
-          <Route path='/music' component = {Music}></Route>
-          <Route path='/settings' component = {Settings}></Route>
+          <Route path='/profile' render={() => <Profile
+            txt={props.state.txt}
+            addPost={props.addPost} />}>
+          </Route>
+          <Route exact path='/messages' render={() => <Dialogs dialogs={props.state.dialogs} />}></Route>
+          <Route path='/news' component={News}></Route>
+          <Route path='/music' component={Music}></Route>
+          <Route path='/settings' component={Settings}></Route>
         </div>
       </div>
     </BrowserRouter>
