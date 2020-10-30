@@ -17,8 +17,11 @@ const App = (props) => {
         <div className='contentWrap'>
           <Navbar />
           <Route path='/profile' render={() => <Profile
-            txt={props.state.txt}
-            addPost={props.addPost} />}>
+            txt={props.state.posts.txt}
+            addPost={props.addPost}
+            value = {props.state.posts.newPostText}
+            updateNewPostText = {props.updateNewPostText} />
+            }>
           </Route>
           <Route exact path='/messages' render={() => <Dialogs dialogs={props.state.dialogs} />}></Route>
           <Route path='/news' component={News}></Route>

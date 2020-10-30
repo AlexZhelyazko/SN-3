@@ -1,11 +1,14 @@
-import {renderElem} from '../../render'
+let renderElem = () => {}
 
 const state = {
-    txt: [
-        { text: 'Hello', id: '1' },
-        { text: 'World', id: '1' },
-        { text: '!!!', id: '1' },
-    ],
+    posts: {
+        txt: [
+            { text: 'Hello', id: '1' },
+            { text: 'World', id: '1' },
+            { text: '!!!', id: '1' },
+        ],
+        newPostText: '',
+    },
 
     dialogs: {
         dialogsItems: [
@@ -29,8 +32,17 @@ export let addPost = (postMessage) => {
         text: postMessage,
         id: '1',
     };
-    state.txt.push(newPost);
+    state.posts.txt.push(newPost);
     renderElem(state);
+}
+
+export let updateNewPostText = (newText) => {
+    state.posts.newPostText = newText;
+    renderElem(state);
+}
+
+export let subscribe = (observe) => {
+    renderElem = observe
 }
 
 export default state;

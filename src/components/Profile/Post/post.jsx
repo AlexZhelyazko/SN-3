@@ -12,12 +12,17 @@ const Post = (props) => {
     let addPost = () => {
         let value = inputValue.current.value;
         props.addPost(value);
-        inputValue.current.value = '';
+        props.updateNewPostText('')
+    }
+
+    let onInputChange = () => {
+        let value = inputValue.current.value;
+        props.updateNewPostText(value)
     }
 
     return (
         <div>
-            <input ref = {inputValue} className={postStyle.inputStyle} type = 'text'></input>
+            <textarea onChange = {onInputChange} ref = {inputValue} className={postStyle.inputStyle} value = {props.value} type = 'text'></textarea>
             <button onClick = {addPost} className = {postStyle.buttonStyle}>Add Post</button>
             {p}
         </div>
