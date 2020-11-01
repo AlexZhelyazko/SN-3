@@ -6,19 +6,21 @@ const Post = (props) => {
     
     const p = props.txt.map((t) => {
         return <Myposts text = {t.text} id = {t.id} />
-    })
+    });
 
-    let inputValue = React.createRef()
+    let inputValue = React.createRef();
+    
     let addPost = () => {
+        debugger
         let value = inputValue.current.value;
-        props.addPost(value);
-        props.updateNewPostText('')
-    }
+        props.dispatch({type: 'ADD-POST', postMessage: value});
+        //props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: value});
+    };
 
     let onInputChange = () => {
         let value = inputValue.current.value;
-        props.updateNewPostText(value)
-    }
+        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: value });
+    };
 
     return (
         <div>
@@ -26,7 +28,7 @@ const Post = (props) => {
             <button onClick = {addPost} className = {postStyle.buttonStyle}>Add Post</button>
             {p}
         </div>
-    )
-}
+    );
+};
 
 export default Post

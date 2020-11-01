@@ -18,9 +18,8 @@ const App = (props) => {
           <Navbar />
           <Route path='/profile' render={() => <Profile
             txt={props.state.posts.txt}
-            addPost={props.addPost}
-            value = {props.state.posts.newPostText}
-            updateNewPostText = {props.updateNewPostText} />
+            dispatch={props.dispatch}
+            value = {props.state.posts.newPostText} />
             }>
           </Route>
           <Route exact path='/messages' render={() => <Dialogs dialogs={props.state.dialogs} />}></Route>
