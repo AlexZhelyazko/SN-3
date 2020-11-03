@@ -25,6 +25,7 @@ let store = {
                 { message: 'Yo', id: 3 },
                 { message: 'Programm', id: 4 },
             ],
+            newMessageText: '',
         },
     }, 
 
@@ -48,9 +49,33 @@ let store = {
         } else if (action.type === 'UPDATE-NEW-POST-TEXT'){
             this._state.posts.newPostText = action.newText;
             renderElem(this._state);
+        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
+            this._state.dialogs.newMessageText = action.newMsg;
+            renderElem(this._state);
+        } else if (action.type === 'SEND-MESSAGE'){
+           let msg = { message: action.message, id: 1 };
+           this._state.dialogs.messageItems.push(msg);
+           this._state.dialogs.newMessageText = '';
+           renderElem(this._state);
         }
     }
     
+};
+
+export  const addPostActionCreator = (value) => {
+    return {type: 'ADD-POST', postMessage: value}
+};
+
+export  const onInputChangeActionCreator = (value) => {
+    return {type: 'UPDATE-NEW-POST-TEXT', newText: value }
+};
+
+export  const onUpdateMessageTextCreator = (value) => {
+    return {type: 'UPDATE-NEW-MESSAGE-TEXT', newMsg: value }
+};
+
+export  const onSendMessageCreator = (value) => {
+    return {type: 'SEND-MESSAGE', message: value }
 };
 
 export default store;
