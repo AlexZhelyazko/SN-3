@@ -1,3 +1,6 @@
+import dialogsReducer from './dialogs-reducer';
+import profileReducer from './profile-reducer';
+
 let renderElem = () => {};
 
 let store = {
@@ -38,44 +41,10 @@ let store = {
     },
 
     dispatch(action){
-        if (action.type === 'ADD-POST'){
-            let newPost = {
-                text: action.postMessage,
-                id: '1',
-            };
-            this._state.posts.txt.push(newPost);
-            this._state.posts.newPostText = '';
-            renderElem(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT'){
-            this._state.posts.newPostText = action.newText;
-            renderElem(this._state);
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
-            this._state.dialogs.newMessageText = action.newMsg;
-            renderElem(this._state);
-        } else if (action.type === 'SEND-MESSAGE'){
-           let msg = { message: action.message, id: 1 };
-           this._state.dialogs.messageItems.push(msg);
-           this._state.dialogs.newMessageText = '';
-           renderElem(this._state);
-        }
-    }
-    
-};
-
-export  const addPostActionCreator = (value) => {
-    return {type: 'ADD-POST', postMessage: value}
-};
-
-export  const onInputChangeActionCreator = (value) => {
-    return {type: 'UPDATE-NEW-POST-TEXT', newText: value }
-};
-
-export  const onUpdateMessageTextCreator = (value) => {
-    return {type: 'UPDATE-NEW-MESSAGE-TEXT', newMsg: value }
-};
-
-export  const onSendMessageCreator = (value) => {
-    return {type: 'SEND-MESSAGE', message: value }
+        this._state = dialogsReducer(this._state.posts, action);
+        this._state = profileReducer(this._state.dialogs, action);
+        renderElem(this._state);
+    }    
 };
 
 export default store;
