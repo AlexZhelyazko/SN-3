@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import store from './components/Redux/state'
+import store from './components/Redux/store-redux'
 import App from './App';
 
 let renderElem = (state) => {
@@ -13,4 +13,7 @@ let renderElem = (state) => {
 
 renderElem(store.getState())
 
-store.subscribe(renderElem)
+store.subscribe( () => {
+  let state = store.getState();
+  renderElem(state)
+})

@@ -18,14 +18,13 @@ const Dialogs = (props) => {
     let inputValue = React.createRef();
 
     let sendMessage = () => {
-        debugger
         let m = inputValue.current.value;
-        props.dispatch(onSendMessageCreator(m));
+        props.sendMessage(m);
     }
 
     let onInputChange = () => {
         let m = inputValue.current.value;
-        props.dispatch(onUpdateMessageTextCreator(m));
+        props.onInputChange(m);
     }
     
     return (

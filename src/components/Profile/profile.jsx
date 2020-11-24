@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from './Post/post'
+import PostContainer from './Post/MyPosts/postContainer'
 import ProfileInfo from './ProfieInfo/profileinfo'
 
 const Profile = (props) => {
@@ -7,7 +7,7 @@ const Profile = (props) => {
         <div className='content'>
            <ProfileInfo />
             <div>New post</div>
-            <Post txt = {props.txt} value = {props.value} dispatch = {props.dispatch}/>
+            <PostContainer txt = {props.txt} value = {props.value} dispatch = {props.dispatch}/>
         </div>
     )
 }

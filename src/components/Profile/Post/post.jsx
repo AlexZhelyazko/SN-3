@@ -14,12 +14,12 @@ const Post = (props) => {
     
     let addPost = () => {
         let value = inputValue.current.value;
-        props.dispatch(addPostActionCreator(value));
+        props.addPost(value)
     };
 
     let onInputChange = () => {
         let value = inputValue.current.value;
-        props.dispatch(onInputChangeActionCreator(value));
+        props.onInputChange(value)
     };
 
     return (
