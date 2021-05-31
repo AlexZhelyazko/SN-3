@@ -1,12 +1,9 @@
 import React from 'react';
-import dialogStyle from './dialogs.module.css'
-import DialogItem from './DialogItems/dialog_items'
-import Messages from './MessageItems/message_items'
 import {onSendMessageCreator} from '../Redux/dialogs-reducer'
 import {onUpdateMessageTextCreator} from '../Redux/dialogs-reducer'
 import Dialogs from './dialogs'
 
-const dialogsContainer = (props) => {
+const DialogsContainer = (props) => {
     let sendMessage = (value) => {
         props.dispatch(onSendMessageCreator(value));
     }
@@ -16,8 +13,8 @@ const dialogsContainer = (props) => {
     }
     
     return (
-        <Dialogs sendMessage = {sendMessage} onInputChange = {onInputChange} dialogs={props.state.dialogs}/>
+        <Dialogs sendMessage = {sendMessage} onInputChange = {onInputChange} dialogs={props.dialogs}/>
     )
 }
 
-export default dialogsContainer
+export default DialogsContainer

@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header/header.jsx'
 import Navbar from './components/Navbar/navbar.jsx'
 import Profile from './components/Profile/profile.jsx'
-import dialogsContainer from './components/Dialogs/dialogsContainer.js'
+import DialogsContainer from './components/Dialogs/dialogsContainer.js'
 import Settings from './components/Settingss/settings.jsx'
 import Music from './components/Music/music.jsx'
 import News from './components/News/news.jsx'
@@ -22,7 +22,7 @@ const App = (props) => {
             value = {props.state.posts.newPostText} />
             }>
           </Route>
-          <Route exact path='/messages' render={() => <dialogsContainer dialogs={props.state.dialogs} dispatch = {props.dispatch}/>}></Route>
+          <Route exact path='/messages' render={() => <DialogsContainer dialogs={props.state.dialogs} dispatch = {props.dispatch}/>}></Route>
           <Route path='/news' component={News}></Route>
           <Route path='/music' component={Music}></Route>
           <Route path='/settings' component={Settings}></Route>
