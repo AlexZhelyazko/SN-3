@@ -23,10 +23,10 @@ const Post = (props) => {
     };
 
     return (
-        <div>
+        <div className = {postStyle.cont}>
+            {p}
             <textarea onChange = {onInputChange} ref = {inputValue} className={postStyle.inputStyle} value = {props.value} type = 'text'></textarea>
             <button onClick = {addPost} className = {postStyle.buttonStyle}>Add Post</button>
-            {p}
         </div>
     );
 };

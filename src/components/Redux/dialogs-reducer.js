@@ -15,6 +15,7 @@ let initialState = {
         { message: 'Yo', id: 3 },
         { message: 'Programm', id: 4 },
     ],
+
     newMessageText: '',
 };
 
