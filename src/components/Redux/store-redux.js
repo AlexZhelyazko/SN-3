@@ -3,7 +3,7 @@ import profileReducer from './profile-reducer';
 import {combineReducers, createStore} from 'redux';
 
 
-let renderElem = () => {};
+let rerenderEntireTree = () => {};
 
 let reducers = combineReducers ({
     dialogs: dialogsReducer,

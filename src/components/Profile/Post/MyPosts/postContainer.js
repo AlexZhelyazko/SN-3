@@ -1,22 +1,25 @@
-import React from 'react'
 import Post from '../post.jsx'
 import {addPostActionCreator} from '../../../Redux/profile-reducer'
 import {onInputChangeActionCreator} from '../../../Redux/profile-reducer'
+import {connect} from 'react-redux'
 
-const PostContainer = (props) => {
-    
-    let addPost = (value) => {
-        props.dispatch(addPostActionCreator(value));
-    };
-
-    let onInputChange = (value) => {
-        let action = onInputChangeActionCreator(value)
-        props.dispatch(action);
-    };
-
-    return (
-        <Post addPost = {addPost} onInputChange = {onInputChange} value = {props.value} txt = {props.txt} id = {props.id}/>
-    );
+let mapStateToProps = (state) => {
+    debugger
+    return {
+        value: state.posts.value,
+        txt: state.posts.txt,
+        id: state.posts.id
+    }
 };
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addPost: (value) => {dispatch(addPostActionCreator(value))},
+        onInputChange: (value) => {dispatch(onInputChangeActionCreator(value))}
+    }
+};
+
+
+const PostContainer = connect(mapStateToProps, mapDispatchToProps)(Post)
 
 export default PostContainer

@@ -2,11 +2,9 @@ import React from 'react';
 import dialogStyle from './dialogs.module.css'
 import DialogItem from './DialogItems/dialog_items'
 import Messages from './MessageItems/message_items'
-import {onSendMessageCreator} from '../Redux/dialogs-reducer'
-import {onUpdateMessageTextCreator} from '../Redux/dialogs-reducer'
-
 
 const Dialogs = (props) => {
+    
     const dialog = props.dialogs.dialogsItems.map( (d) => {
         return <DialogItem name= {d.name} id = {d.id} />
     })

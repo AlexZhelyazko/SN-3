@@ -3,17 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import store from './components/Redux/store-redux'
 import App from './App';
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
 
-let renderElem = (state) => {
+let rerenderEntireTree = () => {
   ReactDOM.render(
-    <App state={state} dispatch={store.dispatch.bind(store)} />,
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>,
+    </BrowserRouter>,
     document.getElementById('root')
   );
 };
 
-renderElem(store.getState())
+rerenderEntireTree(store.getState())
 
-store.subscribe( () => {
+store.subscribe(() => {
   let state = store.getState();
-  renderElem(state)
+  rerenderEntireTree(state)
 })

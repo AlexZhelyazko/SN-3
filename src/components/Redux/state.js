@@ -3,7 +3,7 @@ import profileReducer from './profile-reducer';
 import {combineReducers, createStore} from 'redux';
 
 
-let renderElem = () => {};
+let rerenderEntireTree = () => {};
 
 
 let store = {
@@ -40,13 +40,13 @@ let store = {
     },
 
     subscribe(observe){
-        renderElem = observe
+        rerenderEntireTree = observe
     },
 
     dispatch(action){
         this._state = dialogsReducer(this._state.posts, action);
         this._state = profileReducer(this._state.dialogs, action);
-        renderElem(this._state);
+        rerenderEntireTree(this._state);
     }    
 };
 
