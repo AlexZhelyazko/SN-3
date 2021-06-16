@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 let mapStateToProps = (state) => {
     debugger
     return {
-        value: state.posts.value,
+        newPostText: state.posts.value,
         txt: state.posts.txt,
         id: state.posts.id
     }
@@ -14,8 +14,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        addPost: (value) => {dispatch(addPostActionCreator(value))},
-        onInputChange: (value) => {dispatch(onInputChangeActionCreator(value))}
+        addPost: (newPostText) => {dispatch(addPostActionCreator(newPostText))},
+        onInputChange: (newPostText) => {dispatch(onInputChangeActionCreator(newPostText))}
     }
 };
 

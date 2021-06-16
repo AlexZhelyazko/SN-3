@@ -11,33 +11,33 @@ let initialState = {
 };
 
 let profileReducer = (state = initialState, action) => {
+    let newPost = {
+        text: action.postMessage,
+        id: '1',
+    };
     switch (action.type) {
-        case AddPost: {
-            let newPost = {
-                text: action.postMessage,
-                id: '1',
-            };
-            let stateCopy = {...state};
-            stateCopy.txt = [...state.txt]
-            stateCopy.txt.push(newPost);
-            stateCopy.newPostText = '';
-            return stateCopy;
-        }
-        case UpdateNewPostText: 
-            let stateCopy = {...state};
-            stateCopy.newPostText = action.newText;
-            return stateCopy;
+        case AddPost:
+            return {
+                ...state,
+                newPostText: '',
+                txt: [...state.txt, newPost],
+            }
+        case UpdateNewPostText:
+            return {
+                ...state,
+                newPostText: action.newText
+            }
         default:
             return state;
     };
 };
 
-export  const addPostActionCreator = (value) => {
-    return {type: 'ADD-POST', postMessage: value}
+export const addPostActionCreator = (value) => {
+    return { type: 'ADD-POST', postMessage: value }
 };
 
-export  const onInputChangeActionCreator = (value) => {
-    return {type: 'UPDATE-NEW-POST-TEXT', newText: value }
+export const onInputChangeActionCreator = (value) => {
+    return { type: 'UPDATE-NEW-POST-TEXT', newText: value }
 };
 
 export default profileReducer
