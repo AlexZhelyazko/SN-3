@@ -4,7 +4,6 @@ import {onInputChangeActionCreator} from '../../../Redux/profile-reducer'
 import {connect} from 'react-redux'
 
 let mapStateToProps = (state) => {
-    debugger
     return {
         newPostText: state.posts.value,
         txt: state.posts.txt,
