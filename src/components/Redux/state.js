@@ -3,7 +3,7 @@ import profileReducer from './profile-reducer';
 
 
 
-let rerenderEntireTree = () => {};
+//let rerenderEntireTree = () => {};
 
 
 let store = {
@@ -39,14 +39,14 @@ let store = {
         return this._state;
     },
 
-    subscribe(observe){
+    /*subscribe(observe){
         rerenderEntireTree = observe
-    },
+    },*/
 
     dispatch(action){
         this._state = dialogsReducer(this._state.posts, action);
         this._state = profileReducer(this._state.dialogs, action);
-        rerenderEntireTree(this._state);
+        //rerenderEntireTree(this._state);
     }    
 };
 

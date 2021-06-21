@@ -1,6 +1,7 @@
 const UpdateNewMessageText = 'UPDATE-NEW-MESSAGE-TEXT';
 const SendMessage = 'SEND-MESSAGE';
 
+
 let initialState = {
     dialogsItems: [
         { name: 'Alex', id: 1 },
