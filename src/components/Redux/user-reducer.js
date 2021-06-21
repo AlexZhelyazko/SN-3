@@ -24,7 +24,8 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: state.users.map(u => {
-                    if (u.id === action.userID) {
+                    if (u.key === action.key) {
+                        console.log(action.key);
                         return { ...u, following: true }
                     }
                     return u;
@@ -34,7 +35,8 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: state.users.map(u => {
-                    if (u.id === action.userID) {
+                    if (u.key === action.key) {
+                        console.log(action.key);
                         return { ...u, following: false }
                     }
                     return u;
@@ -42,7 +44,7 @@ const userReducer = (state = initialState, action) => {
             }
         case SetUsers:
             return {
-                ...state
+                ...state, users: [...state.users, ...action.users]
             }
         default:
             return state
