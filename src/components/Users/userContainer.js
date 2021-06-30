@@ -6,7 +6,10 @@ import {connect} from 'react-redux';
 
 let mapStateToProps = (state) => {
     return {
-        friends: state.users
+        pageSize: state.users.pageSize,
+        friends: state.users,
+        totalCount: state.users.totalCount,
+        currentPage: state.users.currentPage,
     }
 };
 

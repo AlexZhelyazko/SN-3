@@ -2,21 +2,10 @@ const Follow = 'FOLLOW';
 const Unfollow = 'UNFOLLOW';
 const SetUsers = 'SET-USERS';
 let initialState = {
-    users: []
-    /* users: [
-        {
-            imageURL: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png',
-            key: 1, following: true, name: 'Alex', status: 'married', city: 'Minsk'
-        },
-        {
-            imageURL: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png',
-            key: 2, following: false, name: 'Dmitri', status: 'I am free', city: 'Moscow'
-        },
-        {
-            imageURL: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png',
-            key: 3, following: true, name: 'Roberto', status: 'Sex', city: 'Mexico'
-        },
-    ], */
+    users: [],
+    pageSize: 5,
+    totalCount: 10,
+    currentPage: 1,
 };
 
 const userReducer = (state = initialState, action) => {
