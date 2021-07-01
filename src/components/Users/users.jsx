@@ -5,30 +5,33 @@ import * as axios from 'axios'
 
 class Users extends React.Component {
     componentDidMount = () => {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=3`)
-            .then(response => { this.props.setUsers(response) });
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
+            .then(response => {
+                this.props.setUsers(response);
+                this.props.SetTotalCount(response.data.totalCount)
+            });
     }
 
-    changeUsersPage = (pageNumber) => {
-        
+    onPageChanged = (page) => {
+        this.props.SetCurrentPage(page);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${page}`)
+            .then(response => {
+                this.props.setUsers(response);
+            });
     }
-
-    createBtn = () => {
-        let arr = [];
-        let pagesCount = Math.ceil(this.state.totalCount / this.state.pageSize);
-        for (let i = 1; i<=pagesCount; i++){
-            arr.push(i);
-        };
-        return arr;
-    };
 
     render() {
+        let pages = [];
+        let pagesCount = Math.ceil(this.props.totalCount / this.props.pageSize);
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        };
         return (
             <div>
-                <div><span>{this.createBtn}</span></div>
+                <div>{pages.map(p => <span onClick={() => this.onPageChanged(p)}>||{p}||</span>)}</div>
                 {this.props.friends.users.map(u =>
                     <div className={userStyle.wrap}>
-                        <div><img src={u.photos.small == null ? 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png': u.photos.small} /></div>
+                        <div><img src={u.photos.small == null ? 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png' : u.photos.small} /></div>
                         <div>{u.name}</div>
                         <div>{u.followed ?
                             <button onClick={() => { this.props.unfollow(u.id) }}>Follow </button> :
