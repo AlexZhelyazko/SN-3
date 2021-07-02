@@ -6,9 +6,10 @@ const Users = (props) => {
     let pagesCount = Math.ceil(props.totalCount / props.pageSize);
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
+    }
         return <div>
             <div>{pages.map(p => <span onClick={() => props.onPageChanged(p)}>||{p}||</span>)}</div>
-            {this.props.friends.users.map(u =>
+            {props.friends.users.map(u =>
                 <div className={userStyle.wrap}>
                     <div><img src={u.photos.small == null ? 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png' : u.photos.small} /></div>
                     <div>{u.name}</div>
@@ -19,6 +20,5 @@ const Users = (props) => {
                 </div>
             )}
         </div>
-    }
 }
 export default Users;

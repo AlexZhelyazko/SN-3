@@ -7,7 +7,7 @@ import DialogsContainer from './components/Dialogs/dialogsContainer.js'
 import Settings from './components/Settingss/settings.jsx'
 import Music from './components/Music/music.jsx'
 import News from './components/News/news.jsx'
-import UserContainer from './components/Users/userContainer';
+import UserContainer from './components/Users/userContainer.jsx';
 import { Route } from 'react-router-dom'
 
 const App = (props) => {
