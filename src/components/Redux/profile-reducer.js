@@ -1,5 +1,6 @@
 const AddPost = 'ADD-POST';
 const UpdateNewPostText = 'UPDATE-NEW-POST-TEXT';
+const SetCurrentProfile = 'SET-CURRENT-PROFILE';
 
 let initialState = {
     txt: [
@@ -8,6 +9,7 @@ let initialState = {
         { text: '!!!', id: '1' },
     ],
     newPostText: '',
+    currentProfile: null
 };
 
 let profileReducer = (state = initialState, action) => {
@@ -27,6 +29,10 @@ let profileReducer = (state = initialState, action) => {
                 ...state,
                 newPostText: action.newText
             }
+        case SetCurrentProfile:
+            return {
+                ...state, currentProfile: action.profileInfo
+            }
         default:
             return state;
     };
@@ -38,6 +44,10 @@ export const addPostActionCreator = (value) => {
 
 export const onInputChangeActionCreator = (value) => {
     return { type: 'UPDATE-NEW-POST-TEXT', newText: value }
+};
+
+export const setCurrentProfileAC = (profileInfo) => {
+    return { type: 'SET-CURRENT-PROFILE', profileInfo: profileInfo }
 };
 
 export default profileReducer

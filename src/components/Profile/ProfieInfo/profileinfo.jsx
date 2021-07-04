@@ -1,10 +1,10 @@
 import React from 'react';
 import Description from './Description/description'
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
     return (
         <div>
-             <Description />
+             <Description props = {props.props}/>
         </div>
     );
 }

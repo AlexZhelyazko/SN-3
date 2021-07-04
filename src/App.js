@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header/header.jsx'
 import Navbar from './components/Navbar/navbar.jsx'
-import Profile from './components/Profile/profile.jsx'
+import ProfileContainer from './components/Profile/profile.jsx'
 import DialogsContainer from './components/Dialogs/dialogsContainer.js'
 import Settings from './components/Settingss/settings.jsx'
 import Music from './components/Music/music.jsx'
@@ -16,7 +16,7 @@ const App = (props) => {
         <Header />
         <div className='contentWrap'>
           <Navbar/>
-          <Route path='/profile' render={() => <Profile/>}></Route>
+          <Route path='/profile' render={() => <ProfileContainer/>}></Route>
           <Route  path='/messages' render={() => <DialogsContainer/>}></Route>
           <Route path='/users' render={() => <UserContainer/>}></Route>
           <Route path='/news' component={News}></Route>
