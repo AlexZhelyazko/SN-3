@@ -13,7 +13,7 @@ import * as axios from 'axios'
 class UsersShadowContainer extends React.Component {
     componentDidMount = () => {
         this.props.ChangeFetchFlag(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`, {withCredentials: true})
             .then(response => {
                 this.props.ChangeFetchFlag(false);
                 this.props.setUsers(response);
@@ -24,7 +24,7 @@ class UsersShadowContainer extends React.Component {
     onPageChanged = (page) => {
         this.props.SetCurrentPage(page);
         this.props.ChangeFetchFlag(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${page}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${page}`, {withCredentials: true})
             .then(response => {
                 this.props.ChangeFetchFlag(false);
                 this.props.setUsers(response);
@@ -39,6 +39,7 @@ class UsersShadowContainer extends React.Component {
             onPageChanged={this.onPageChanged}
             friends={this.props.friends}
             follow={this.props.follow}
+            unfollow={this.props.unfollow}
         />
         </>
     }
