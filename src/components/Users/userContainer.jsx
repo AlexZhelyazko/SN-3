@@ -39,8 +39,6 @@ class UsersShadowContainer extends React.Component {
             onPageChanged={this.onPageChanged}
             friends={this.props.friends}
             follow={this.props.follow}
-            unfollow={this.props.unfollow} 
-            currentProfile = {this.props.currentProfile}
         />
         </>
     }
@@ -48,7 +46,6 @@ class UsersShadowContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        currentProfile: state.posts.currentProfile,
         pageSize: state.users.pageSize,
         friends: state.users,
         totalCount: state.users.totalCount,

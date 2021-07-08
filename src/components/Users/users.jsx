@@ -8,13 +8,12 @@ const Users = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
-    debugger
     return <div>
         <div>{pages.map(p => <span onClick={() => props.onPageChanged(p)}>||{p}||</span>)}</div>
         {props.friends.users.map(u =>
             <div className={userStyle.wrap}>
                 <div>
-                    <NavLink to = {`profile/${props.currentProfile}`}>
+                    <NavLink to = {`profile/${u.id}`}>
                         <img src={u.photos.small == null ?
                             'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png' :
                             u.photos.small} />
