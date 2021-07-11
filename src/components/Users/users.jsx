@@ -24,10 +24,10 @@ const Users = (props) => {
                 <div>{u.name}</div>
                 <div>{u.followed ?
                     <button onClick={() => {
-                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
+                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
                             {
                                 withCredentials: true,
-                                headers: { 'API-KEY': '7ba96402-350a-4e57-819a-da2142bc3e35' }
+                                headers: { 'API-KEY': '4e0c2e3a-1448-441a-bba9-5de74fac940c' }
                             }
                         )
                             .then(response => {
@@ -37,10 +37,10 @@ const Users = (props) => {
                             })
                     }}>Unfollow </button> :
                     <button onClick={ () => { //TODO
-                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
                             {
                                 withCredentials: true,
-                                headers: { 'API-KEY': '7ba96402-350a-4e57-819a-da2142bc3e35' }
+                                headers: { 'API-KEY': '4e0c2e3a-1448-441a-bba9-5de74fac940c' }
                             }
                         )
                             .then(response => {
