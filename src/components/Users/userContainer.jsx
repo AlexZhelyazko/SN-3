@@ -15,10 +15,10 @@ class UsersShadowContainer extends React.Component {
     componentDidMount = () => {
         this.props.ChangeFetchFlag(true);
         getUsers(this.props.pageSize, this.props.currentPage)
-            .then(response => {
+            .then(data => {
                 this.props.ChangeFetchFlag(false);
-                this.props.setUsers(response);
-                this.props.SetTotalCount(response.data.totalCount)
+                this.props.setUsers(data);
+                this.props.SetTotalCount(data.totalCount)
             });
     }
 
@@ -26,9 +26,9 @@ class UsersShadowContainer extends React.Component {
         this.props.SetCurrentPage(page);
         this.props.ChangeFetchFlag(true);
         getUsers(this.props.pageSize, this.props.currentPage)
-            .then(response => {
+            .then(data => {
                 this.props.ChangeFetchFlag(false);
-                this.props.setUsers(response);
+                this.props.setUsers(data);
             });
     }
     render() {

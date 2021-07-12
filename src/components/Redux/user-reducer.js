@@ -37,7 +37,7 @@ const userReducer = (state = initialState, action) => {
             }
         case SetUsers:
             return {
-                ...state, users: [...action.users.data.items]
+                ...state, users: [...action.users.items]
             }
         case SetCurrentPage:
             return {
