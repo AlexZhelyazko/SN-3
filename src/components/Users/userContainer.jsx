@@ -1,6 +1,6 @@
 import Users from './users';
 import React from 'react';
-import { followAC } from '../Redux/user-reducer';
+import { followAC, ToggleFollowingProgressAC } from '../Redux/user-reducer';
 import { unfollowAC } from '../Redux/user-reducer';
 import { setUsersAC } from '../Redux/user-reducer';
 import { setCurrentPageAC } from '../Redux/user-reducer';
@@ -10,7 +10,6 @@ import { ChangeFetchFlagAC } from '../Redux/user-reducer';
 import Loader from '../Loader/loader';
 import * as axios from 'axios'
 import { getUsers } from '../../API/api';
-
 class UsersShadowContainer extends React.Component {
     componentDidMount = () => {
         this.props.ChangeFetchFlag(true);
@@ -41,6 +40,8 @@ class UsersShadowContainer extends React.Component {
             friends={this.props.friends}
             follow={this.props.follow}
             unfollow={this.props.unfollow}
+            toggleFollowingProgress = {this.props.ToggleFollowingProgress}
+            followingInProgress = {this.props.followingInProgress}
         />
         </>
     }
@@ -53,6 +54,7 @@ let mapStateToProps = (state) => {
         totalCount: state.users.totalCount,
         currentPage: state.users.currentPage,
         isFetching: state.users.isFetching,
+        followingInProgress: state.users.followingInProgress,
     }
 };
 
@@ -64,6 +66,7 @@ let mapDispatchToProps = (dispatch) => {
         SetCurrentPage: (page) => { dispatch(setCurrentPageAC(page)) },
         SetTotalCount: (count) => { dispatch(setTotalCountAC(count)) },
         ChangeFetchFlag: (flag) => { dispatch(ChangeFetchFlagAC(flag)) },
+        ToggleFollowingProgress: (isFetching, userID) => {dispatch(ToggleFollowingProgressAC(isFetching, userID))},
     }
 };
 
