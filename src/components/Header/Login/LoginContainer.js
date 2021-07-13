@@ -1,15 +1,12 @@
 import React from 'react'
 import * as axios from 'axios'
-import { loginUserAC } from '../../Redux/login-reducer';
+import { AuthUserTC, loginUserAC } from '../../Redux/login-reducer';
 import { connect } from 'react-redux';
 import Login from './Login';
 
 class LoginClass extends React.Component {
     componentDidMount = () => {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials: true})
-            .then(response => {
-                this.props.loginUser(response)
-            });
+        this.props.authUser()   
     }
     render() {
         return <>
@@ -28,6 +25,7 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         loginUser: (data) => { dispatch(loginUserAC(data)) },
+        authUser: () => {dispatch(AuthUserTC())}
     }
 };
 

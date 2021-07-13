@@ -1,3 +1,4 @@
+import { UserAPI } from "../../API/api";
 const AddPost = 'ADD-POST';
 const UpdateNewPostText = 'UPDATE-NEW-POST-TEXT';
 const SetCurrentProfile = 'SET-CURRENT-PROFILE';
@@ -49,5 +50,14 @@ export const onInputChangeActionCreator = (value) => {
 export const setCurrentProfileAC = (profileInfo) => {
     return { type: 'SET-CURRENT-PROFILE', profileInfo: profileInfo }
 };
+
+export const GetProfileTC = (userID) => {
+    return (dispatch) => {
+        UserAPI.getProfile(userID)
+        .then(response => {
+            dispatch(setCurrentProfileAC(response.data))
+        });
+    }
+}
 
 export default profileReducer

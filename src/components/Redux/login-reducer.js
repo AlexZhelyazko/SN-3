@@ -1,3 +1,4 @@
+import {UserAPI} from '../../API/api'
 const LOGIN_USER = 'LOGIN-USER';
 
 let initialState = {
@@ -19,5 +20,14 @@ let loginReducer = (state = initialState, action) => {
 export const loginUserAC = (data) => {
     return {type: 'LOGIN-USER', data: data}
 };
+
+export const AuthUserTC = () => {
+    return (dispatch) => {
+        return UserAPI.authUser()
+        .then(response => {
+            dispatch(loginUserAC(response))
+        });
+    }
+}
 
 export default loginReducer;

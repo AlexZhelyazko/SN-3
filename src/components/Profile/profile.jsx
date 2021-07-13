@@ -2,16 +2,13 @@ import React from 'react';
 import PostContainer from './Post/MyPosts/postContainer'
 import ProfileInfo from './ProfieInfo/profileinfo'
 import {withRouter} from 'react-router-dom'
-import * as axios from 'axios'
 import { connect } from 'react-redux';
 import { setCurrentProfileAC } from '../Redux/profile-reducer';
 import Loader from '../Loader/loader';
+import { GetProfileTC } from '../Redux/profile-reducer';
 class Profile extends React.Component {
     componentDidMount = () => {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${this.props.match.params.userId}`)
-        .then(response => {
-            this.props.SetCurrentProfile(response.data)
-        });
+        this.props.GetProfile(this.props.match.params.userId)
     };
     render() {
         if (this.props.currentProfileInfo == null){
@@ -37,7 +34,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        SetCurrentProfile: (profileInfo) => {dispatch(setCurrentProfileAC(profileInfo))}
+        SetCurrentProfile: (profileInfo) => {dispatch(setCurrentProfileAC(profileInfo))},
+        GetProfile: (userID) => {dispatch(GetProfileTC(userID))}
     }
 }
 
