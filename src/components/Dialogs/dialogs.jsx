@@ -2,7 +2,6 @@ import React from 'react';
 import dialogStyle from './dialogs.module.css'
 import DialogItem from './DialogItems/dialog_items'
 import Messages from './MessageItems/message_items'
-import { Redirect } from 'react-router-dom';
 
 const Dialogs = (props) => {
     
@@ -25,8 +24,6 @@ const Dialogs = (props) => {
         let m = inputValue.current.value;
         props.onInputChange(m);
     }
-
-    if (props.isAuth === false) return <Redirect to ='/login'></Redirect>
     
     return (
         <div className={dialogStyle.wrap}>

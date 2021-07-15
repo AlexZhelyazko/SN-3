@@ -25,6 +25,7 @@ export const AuthUserTC = () => {
     return (dispatch) => {
         return UserAPI.authUser()
         .then(response => {
+            if (response.data.resultCode !== 0) return 0
             dispatch(loginUserAC(response))
         });
     }

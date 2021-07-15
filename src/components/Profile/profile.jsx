@@ -6,13 +6,13 @@ import { connect } from 'react-redux';
 import { setCurrentProfileAC } from '../Redux/profile-reducer';
 import Loader from '../Loader/loader';
 import { GetProfileTC } from '../Redux/profile-reducer';
+import { withAuthRedirect } from '../HOC/withAuthRedirect';
+
 class Profile extends React.Component {
     componentDidMount = () => {
         this.props.GetProfile(this.props.match.params.userId)
     };
     render() {
-        if (this.props.isAuth === false) return <Redirect to ='/login'></Redirect>
-
         if (this.props.currentProfileInfo == null){
             return <Loader/>
         }
@@ -42,7 +42,10 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-let ProfileRouteContainer = withRouter(Profile)
+
+let AuthRedirect = withAuthRedirect(Profile)
+
+let ProfileRouteContainer = withRouter(AuthRedirect)
 
 const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(ProfileRouteContainer)
 
