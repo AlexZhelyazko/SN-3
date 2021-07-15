@@ -1,7 +1,7 @@
 import React from 'react';
 import PostContainer from './Post/MyPosts/postContainer'
 import ProfileInfo from './ProfieInfo/profileinfo'
-import {withRouter} from 'react-router-dom'
+import {Redirect, withRouter} from 'react-router-dom'
 import { connect } from 'react-redux';
 import { setCurrentProfileAC } from '../Redux/profile-reducer';
 import Loader from '../Loader/loader';
@@ -11,6 +11,8 @@ class Profile extends React.Component {
         this.props.GetProfile(this.props.match.params.userId)
     };
     render() {
+        if (this.props.isAuth) return <Redirect to ='/login'></Redirect>
+
         if (this.props.currentProfileInfo == null){
             return <Loader/>
         }
@@ -28,7 +30,8 @@ class Profile extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        currentProfileInfo: state.posts.currentProfile
+        currentProfileInfo: state.posts.currentProfile,
+        isAuth: state.login.isAuth
     }
 }
 
