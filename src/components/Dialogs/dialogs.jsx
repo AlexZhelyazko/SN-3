@@ -26,7 +26,7 @@ const Dialogs = (props) => {
         props.onInputChange(m);
     }
 
-    if (props.isAuth) return <Redirect to ='/login'></Redirect>
+    if (props.isAuth === false) return <Redirect to ='/login'></Redirect>
     
     return (
         <div className={dialogStyle.wrap}>

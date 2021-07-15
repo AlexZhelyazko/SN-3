@@ -11,7 +11,7 @@ class Profile extends React.Component {
         this.props.GetProfile(this.props.match.params.userId)
     };
     render() {
-        if (this.props.isAuth) return <Redirect to ='/login'></Redirect>
+        if (this.props.isAuth === false) return <Redirect to ='/login'></Redirect>
 
         if (this.props.currentProfileInfo == null){
             return <Loader/>
