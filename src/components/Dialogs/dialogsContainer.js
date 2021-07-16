@@ -5,9 +5,7 @@ import Dialogs from './dialogs'
 import {withAuthRedirect} from '../HOC/withAuthRedirect'
 
 let mapStateToProps = (state) => {
-    debugger
     return {
-        isAuth: state.login.isAuth,
         dialogs: state.dialogs,
     }
 };

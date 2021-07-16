@@ -31,7 +31,6 @@ class Profile extends React.Component {
 let mapStateToProps = (state) => {
     return {
         currentProfileInfo: state.posts.currentProfile,
-        isAuth: state.login.isAuth
     }
 }
 
