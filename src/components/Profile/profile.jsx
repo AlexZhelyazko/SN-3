@@ -1,12 +1,13 @@
 import React from 'react';
 import PostContainer from './Post/MyPosts/postContainer'
 import ProfileInfo from './ProfieInfo/profileinfo'
-import {Redirect, withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux';
 import { setCurrentProfileAC } from '../Redux/profile-reducer';
 import Loader from '../Loader/loader';
 import { GetProfileTC } from '../Redux/profile-reducer';
 import { withAuthRedirect } from '../HOC/withAuthRedirect';
+import { compose } from 'redux';
 
 class Profile extends React.Component {
     componentDidMount = () => {
@@ -41,11 +42,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-
-let AuthRedirect = withAuthRedirect(Profile)
-
-let ProfileRouteContainer = withRouter(AuthRedirect)
-
-const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(ProfileRouteContainer)
-
-export default ProfileContainer
+export default compose( connect(mapStateToProps, mapDispatchToProps),withRouter,withAuthRedirect)(Profile) 
