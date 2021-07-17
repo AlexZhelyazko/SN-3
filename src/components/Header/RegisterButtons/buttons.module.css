@@ -6,19 +6,15 @@
 }
 
 .signIn {
-    border: none;
-    height: 25px;
-    width: 65px;
-    font-size: 16px;
+    cursor: pointer;
+    height: 29px;
+    width: 84px;
+    font-size: 21px;
     font-family: auto;
-}
-
-.register{
-    background-color: #025ba3;
-    height: 25px;
-    width: 65px;
-    font-size: 16px;
-    font-family: auto;
+    background-color: #181a1e;
+    border-radius: 11px;
     color: white;
     border: none;
+    box-shadow: 0 0.5px gold;
 }
+

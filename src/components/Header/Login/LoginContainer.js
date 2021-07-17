@@ -1,6 +1,7 @@
 import React from 'react'
 import { AuthUserTC, loginUserAC } from '../../Redux/login-reducer';
 import { connect } from 'react-redux';
+import Buttons from '../RegisterButtons/buttons';
 import Login from './Login';
 
 class LoginClass extends React.Component {
@@ -8,9 +9,8 @@ class LoginClass extends React.Component {
         this.props.authUser()   
     }
     render() {
-        debugger
         return <>
-            {this.props.isAuth.isAuth === true ? <div>{this.props.login.login}</div> : <Login/>}
+            {this.props.isAuth.isAuth === true ? <div>{this.props.login.login}</div> : <Buttons/>}
         </>
     }
 }

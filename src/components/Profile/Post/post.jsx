@@ -15,7 +15,6 @@ const Post = (props) => {
     };
 
     let onInputChange = () => {
-        debugger
         let value = inputValue.current.value;
         props.onInputChange(value)
     };

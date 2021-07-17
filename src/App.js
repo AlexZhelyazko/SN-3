@@ -14,9 +14,9 @@ import Login from './components/Header/Login/Login';
 const App = (props) => {
   return (
       <div className='wrap'>
-        <Header />
+        <Navbar/>
         <div className='contentWrap'>
-          <Navbar/>
+        <Header />
           <Route path='/profile/:userId?' render={() => <ProfileContainer/>}></Route>
           <Route  path='/messages' render={() => <DialogsContainer/>}></Route>
           <Route path='/users' render={() => <UserContainer/>}></Route>

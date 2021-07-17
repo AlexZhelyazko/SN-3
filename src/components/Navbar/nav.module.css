@@ -1,16 +1,20 @@
-.nav{
-  padding-left: 1vw;
+.nav {
+  padding-left: 2vw;
   font-size: 20px;
   width: 10%;
-  height: 450px;
-  background-color: blue;
-  padding-top: 1vw;
-  }
-  
-  nav a{
-    color: aliceblue;
-  }
+  background-color: #181a1e;
+  height: 98vh;
+  padding-top: 3vw;
+}
 
-  .activeItem{
-    color: gold;
-  }
+nav div{
+  padding-top: 1vw;
+}
+
+nav a {
+  color: aliceblue;
+}
+
+.activeItem {
+  color: gold;
+}

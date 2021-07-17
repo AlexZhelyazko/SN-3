@@ -1,23 +1,16 @@
 .inputSearch {
-    background-color: #45546a;
+    background-color: #181a1e;
     color: white;
     border: none;
     width: 175px;
+    border: none;
+    font-size: 14px;
     height: 25px;
     text-align: center;
+    box-shadow: 0 0.5px gold;
 }
 
-.buttonSearch {
-    height: 25px;
-    width: 28px;
-    position: relative;
-    top: 9px;
-    background-color: #45546a;
-    border: none;
-    border-left: solid white 1px;
-}
-
-.buttonSearch:hover{
-    background-color: white;
-    cursor: pointer;
+.wrap{
+    display: flex;
+    align-items: center;
 }

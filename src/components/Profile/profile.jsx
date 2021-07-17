@@ -14,18 +14,18 @@ class Profile extends React.Component {
         this.props.GetProfile(this.props.match.params.userId)
     };
     render() {
-        if (this.props.currentProfileInfo == null){
-            return <Loader/>
-        }
-        else {
+        // if (this.props.currentProfileInfo == null){
+        //     return <Loader/>
+        // }
+        //else {
             return (
                 <div className='content'>
-                    <ProfileInfo props = {this.props.currentProfileInfo} />
-                    <div style={{ margin: '10px' }}>New post</div>
+                    {/* <ProfileInfo props = {this.props.currentProfileInfo} /> */}
+                    <div style={{ margin: '10px', color: 'white' }}>New post</div>
                     <PostContainer />
                 </div>
             )
-        }
+        //}
     }
 }
 
@@ -42,4 +42,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default compose( connect(mapStateToProps, mapDispatchToProps),withRouter,withAuthRedirect)(Profile) 
+export default compose( connect(mapStateToProps, mapDispatchToProps),withRouter)(Profile) 
